@@ -1,21 +1,21 @@
 #include <Adafruit_NeoPixel.h>
-//#include <rp2040_pio.h>
-
 #include <SoftwareSerial.h>
-
 
 #define LED_PIN 9
 #define LED_COUNT 1
+
 Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
+
 const int ProxSensor0 = 2;
 const int ProxSensor1 = 4;
 const int ProxSensor2 = 7;
 const int ProxSensor3 = 8;
+
 int inputVal = 0;
-bool pressed[] = {false, false, false, false};
 int Prox[] = {ProxSensor0, ProxSensor1, ProxSensor2, ProxSensor3};
 int SensorColour[4][3] = {{255,0,0},{0,255,0},{0,0,255},{0,255,255}};
 
+bool pressed[] = {false, false, false, false};
 
 
 
@@ -27,12 +27,8 @@ void setup()
   pinMode(ProxSensor2, INPUT);
   pinMode(ProxSensor3, INPUT);
   strip.begin();
-  //strip.setPixelColor (0, 0, 0, 0);
   strip.show();
 
-  //  pinMode(7, OUTPUT);
-  //  tone(ProxSensor1, 36000);
-  //  digitalWrite(13, HIGH);
   Serial.begin(9600);
 }
 
